@@ -1,0 +1,35 @@
+<html>
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        //최소값
+        function solution(a) {
+            let ansnwer
+            let min = Number.MAX_SAFE_INTEGER // min=arr[0]
+            console.log('a', a, a.length, min)
+            for (let i = 0; i < a.length; i++) {
+                if (a[i] < min) min = a[i]
+            }
+            return min
+        }
+
+        console.log(solution([5, 3, 7, 11, 2, 15, 17]));
+
+
+        //내가 적은 답
+
+        // function solution(a) {
+        //     return Math.min(...a)
+        // }
+
+    </script>
+</body>
+
+</html>

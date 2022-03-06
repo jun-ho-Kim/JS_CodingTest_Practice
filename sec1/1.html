@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        //max
+        function solution(a, b, c) {
+            let answer;
+            if (a < b) answer = a
+            else answer = b
+            if (c < answer) answer = c
+            return answer
+        }
+
+        console.log(solution(2, 5, 1));
+
+        //인터넷 보면서 적었던 답
+        // function solution(a, b, c) {
+        //     let answer;
+        //     let arr = [a,b,c]
+        //     return Math.min(...arr)
+        // }
+
+
+        //답지보고 옮겨적었던 답
+        // function solution(a, b, c) {
+        //     let answer;
+        //     if (a < b) return answer = a
+        //     else return  answer = b
+        //     if (c < answer) return answer = c
+        //     return answer
+        // }
+
+        // => if - else문 마다 return을 붙여주어는데 그렇게 될 경우
+        // c가 제일 작을 경우에도 a와 b를 비교하고 return하기 때문에 문제가 생긴다.
+
+
+        //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
+    </script>
+</body>
+
+</html>

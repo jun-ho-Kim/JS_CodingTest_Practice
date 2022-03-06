@@ -1,0 +1,51 @@
+<html>
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        //최소값
+        function solution(a) {
+            let ansnwer = []
+            let sum = 0
+            let min = Number.MAX_SAFE_INTEGER
+            for (let i = 0; i < a.length; i++) {
+                if (a[i] % 2 === 1) {
+                    sum += a[i]
+                    if (a[i] < min) min = a[i]
+                }
+            }
+            ansnwer.push(sum)
+            ansnwer.push(min)
+            return ansnwer
+        }
+
+        console.log(solution([5, 3, 7, 11, 2, 15, 17]));
+
+
+        //내가 푼 문제
+        //나는 push를 안해줌
+
+        // function solution(a) {
+        //     let ansnwer
+        //     let sum = 0
+        //     let min = a[0]
+        //     for (let i = 0; i < a.length; i++) {
+        //         if (a[i] % 2 === 1) {
+        //             sum += a[i]
+        //             if (a[i] < min) min = a[i]
+        //             ansnwer = [sum, min]
+        //         }
+        //     }
+        //     return ansnwer
+        // }
+
+    </script>
+</body>
+
+</html>
