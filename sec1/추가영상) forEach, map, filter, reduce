@@ -1,0 +1,13 @@
+
+            map: 
+            1. array를 return
+            2. 원본 배열의 길이와 똑같이 return한다.
+            3. 원본 배열 값이 return되지 않는다면 undefined로 return 된다 
+
+            filter:
+            1. 원하는 원소만 callback 함수가 return해준다.
+            2. flter요소가 참으로 return한 요소만 return한다.
+
+            reduce 첫번째 인자는 callback함수, 두번째 인자는 초기화하는 값
+            1. reduce는 배열을 return하는 것이 아니라 어떤 값을 생성해서 return한다.
+            2. reduce는 return한 값이 callback함수 첫번째로 간다.
