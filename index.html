@@ -7,36 +7,28 @@
 
 <body>
     <script>
-        //
 
-        function solution(a) {
+        function solution(str) {
             let answer = ""
-            //string으로 값을 복사하면 값이 복사된다.
-            //array로 값을 복사하면 주소가 복사된다.
 
-            for (x of a) {
-                console.log('x', x)
-                x === 'A' ? answer += '#' : answer += x
+            for (x of str) {
+                let num = x.charCodeAt()
+                if (num >= 65 && num <= 95) answer += x.toLowerCase()
+                else answer += x.toUpperCase()
+
+                // if(x === x.toUpperCase()) answer += x.toLowerCase()
+                // else x.toUpperCase()
             }
+
+            //
 
             return answer
         }
 
-        console.log(solution('BANANA'));
+        let str = "StuDY"
 
+        console.log(solution(str))
 
-        /* 내가 적은 답 replaceAll을 사용 */
-
-        // function solution(a) {
-        //     let ansnwer
-
-        //     console.log(a)
-        //     answer = a.replaceAll('A', '#')
-
-        //     return answer
-        // }
-
-        // console.log(solution('BANANA'));
     </script>
 </body>
 

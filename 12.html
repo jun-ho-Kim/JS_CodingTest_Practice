@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+
+        function solution(str) {
+            let ansnwer = str.toUpperCase()
+
+            /* 낱말이 소문자인 경우 대문자로 하나씩 바꿔주는 방법 */
+            // let answer
+            // for (x of str) {
+            //     if (x === x.toLowerCase()) ansnwer += x.toUpperCase()
+            //     else ansnwer += x
+            // }
+
+            /* 
+            아스키코드를 활용하여 소문자를 대문자로 하나씩 바꿔주는 방법
+            String.fromCharCode()는 아스키코드를 문자로 변환해준다.
+            대문자를 소문자로 아스키코드로 변환할려면 -32를 해주면 된다.
+            (소문자 a는 아스키넘버 97, 대문자 a는 아스키넘버 65)
+            */
+            // for (x of str) {
+            //     let num = str.charCodeAt();
+            //     if (num >= 97 && num <= 122) ansnwer += String.fromCharCode(num - 32)
+            // }
+
+            return ansnwer
+        }
+
+
+
+        const str = 'KoreaTimeGood'
+        console.log(solution(str))
+
+    </script>
+</body>
+
+</html>

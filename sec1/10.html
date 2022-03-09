@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(str, a) {
+            let ansnwer = 0;
+
+            for (x of str) {
+                if (x === a) {
+                    ansnwer += 1;
+                }
+            }
+            return ansnwer
+
+        }
+        // js 내장함수를 이용하여 문자 특정 문자 갯수찾는 방법(split 사용)
+
+        /*
+        function solution(str, a) {
+            let answer=s.split(a).length
+            return answer - 1
+        }
+
+        * split은 특정 문자열을 분리한다.
+        예를 들어 COMPUTERPROGRAMMING.split(R)
+        ['COMPUTE', 'P', 'OG', 'AMMING']를 반환한다.
+        그래서 -1을 해주면 특정 문자열의 갯수가 나온다.
+
+        COMPUTERPROGRAMMINGR.split(R)를 할 경우
+        (문자열 마지막에 분리하는 문자열이 존재할 경우)
+        ['COMPUTE', 'P', 'OG', 'AMMING', ""]
+        마지막 값은 빈 String으로 나와서 위와 같이 -1을 해주면
+        특정 문자열의 갯수가 나온다.
+        */
+        const str = 'COMPUTERPROGRAMMING'
+        console.log(solution(str, 'R'))
+    </script>
+</body>
+
+</html>

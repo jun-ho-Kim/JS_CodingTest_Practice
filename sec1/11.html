@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+
+        function solution(str) {
+            let ansnwer = 0;
+
+            for (x of str) {
+                if (x === x.toUpperCase()) {
+                    ansnwer += 1
+                    //ASC Number로 대문자 찾는 방법
+                    // 대문자 65~90
+                    // 소문자 97~122
+                    //let num = x.charCodeAt()
+                    //if(num >= 65 && num <= 90) answer ++;
+                }
+            }
+
+            return ansnwer
+        }
+
+        const str = 'KoreaTimeGood'
+        console.log(solution(str))
+
+    </script>
+</body>
+
+</html>
