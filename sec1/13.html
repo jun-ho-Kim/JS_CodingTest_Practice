@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+
+        function solution(str) {
+            let answer = ""
+
+            for (x of str) {
+                let num = x.charCodeAt()
+                if (num >= 65 && num <= 95) answer += x.toLowerCase()
+                else answer += x.toUpperCase()
+
+                // if(x === x.toUpperCase()) answer += x.toLowerCase()
+                // else x.toUpperCase()
+            }
+
+            //
+
+            return answer
+        }
+
+        let str = "StuDY"
+
+        console.log(solution(str))
+
+    </script>
+</body>
+
+</html>

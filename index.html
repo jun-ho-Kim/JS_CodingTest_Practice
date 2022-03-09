@@ -10,24 +10,19 @@
 
         function solution(str) {
             let answer = ""
+            let num = str.length / 2 - 1
 
-            for (x of str) {
-                let num = x.charCodeAt()
-                if (num >= 65 && num <= 95) answer += x.toLowerCase()
-                else answer += x.toUpperCase()
+            console.log(num)
 
-                // if(x === x.toUpperCase()) answer += x.toLowerCase()
-                // else x.toUpperCase()
-            }
-
-            //
+            if (str.length % 2 === 0) answer = str.substring(num, num + 2)
+            else answer = str.substring(Math.ceil(num), Math.ceil(num) + 1)
 
             return answer
         }
 
-        let str = "StuDY"
+        let str = ['teacher', 'time', 'student', 'beautiful', 'good']
 
-        console.log(solution(str))
+        console.log(solution('banna'))
 
     </script>
 </body>
