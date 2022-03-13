@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+
+        function solution(str) {
+            let answer = ""
+            let mid = Math.floor(str.length / 2)
+
+            console.log('ceil', Math.floor(num))
+            console.log(num)
+
+            //substring은 
+            //substr()은 첫 번째 인자로부터 두 번째 인자 갯수만큼 데이터를 가져오는 함수
+            // if (str.length % 2 === 1) answer = str.subst(mid, 1)
+            // else answer = str.substring(mid - 1, 2)
+            if (str.length % 2 === 1) answer = str.substring(mid, mid + 1)
+            else answer = str.substring(mid - 1, mid + 1)
+
+            //내가 한 방법
+            // let num = str.length / 2
+            // if (str.length % 2 === 0) answer = str.substring(num, num + 2)
+            // else answer = str.substring(Math.ceil(num), Math.ceil(num) + 1)
+
+            return answer
+        }
+
+        let str = ['teacher', 'time', 'student', 'beautiful', 'good']
+
+        console.log(solution('time'))
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+
+        function solution(arr) {
+            //이 강의에서는 filter를 사용
+
+            //3분부터 강의 듣기 + 강의 질문 살펴보기
+
+            //고차함수 인수로 함수를 전달받는 함수
+            //callback함수 인자로 전달되는 함수 
+
+            //filter의 첫번째 함수는 callback함수이다.
+            //filter함수는 인자로 넘어간 callback함수가 참을 return한 value 값들의 모음
+
+            let answer
+
+            answer = arr.filter((function (v, i) {
+                return arr.indexOf(v) === i
+            }))
+
+            return answer
+
+            //내가 적은 정답
+
+            // let answer = []
+
+            // for (let i = 0; i < arr.length; i++) {
+            //     if (answer.indexOf(arr[i]) === -1) {
+            //         answer.push(arr[i])
+            //     }
+            // }
+            // return answer
+        }
+
+
+        console.log(solution(['good', 'time', 'good', 'time', 'student']))
+
+    </script>
+</body>
+
+</html>

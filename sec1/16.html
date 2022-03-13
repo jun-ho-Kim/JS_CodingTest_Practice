@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+
+        function solution(str) {
+            let a = str
+            let answer = ""
+
+            //indexOf는 string을 탐색해 인자와 같은 string 첫 번째 위치를 return한다.(대소문자 구문)
+            //indexOf의 두번째 인자는 해당 위치 이후부터 탐색하도록 한다.
+            for (let i = 0; i < str.length; i++) {
+                if (i === str.indexOf(str[i])) {
+                    answer += str[i]
+                }
+            }
+
+            //중복된 단어의 갯수를 찾을려면
+
+            //let answer = 0
+            //let pos = s.indexOf('k')
+            // while (pos !== -1) {
+            //     answer++
+            //     pos = s.indexOf('k', pos + 1)
+            // }
+
+
+            //내가 푼 문제
+            //include를 해서 작성해도 됨. 하지만 이 강의에서는 indexOf를 사용
+
+            // for (x of str) {
+            //     if (answer.includes(x) === false) {
+            //         answer += x
+            //     }
+            // }
+
+
+            return answer
+        }
+
+
+        console.log(solution('ksekkset'))
+
+    </script>
+</body>
+
+</html>
