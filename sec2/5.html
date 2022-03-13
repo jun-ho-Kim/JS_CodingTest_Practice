@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        //강의 정답
+        //answer를 Array.from으로 [1,1,1,1,1] 배열로 초기화 한 후
+        //이중 for문을 돌려서 arr[i] 가 arr[j] 보다 크면 등수를 하나 밀린다.
+
+        //그 외 커뮤니티에서 다른 사람들이 올린 방법
+        //1. slice로 원본 배열 복사 후 sort로 정렬 후 indexOf로 비교해서 값 return
+        //2. arr.map(i => i.filter(j => i<j).length+1)
+        function solution(arr) {
+            let n = arr.length
+            let answer = Array.from({ length: n }, () => 1)
+            for (let i = 0; i < n; i++) {
+                for (let j = 0; j < n; j++) {
+                    if (arr[i] < arr[j]) answer[i]++
+                }
+            }
+
+            return answer
+
+
+
+            /* 내가 적은 정답
+            rank 변수를 arr 길이로 설정해주고
+            이중 for문을 돌려서 arr[i] 값이 arr[j] 값보다 크거나 같으면
+            rank - 1 를 해준다.
+           
+            let answer = []
+    
+            for (let i = 0; i < arr.length; i++) {
+                let rank = arr.length
+                for (let j = 0; j < arr.length; j++) {
+                    if (i !== j && (arr[i] > arr[j] || arr[i] === arr[j])) rank -= 1
+                }
+                answer.push(rank)
+            }
+    
+            return answer
+        }
+    
+    
+        */
+        }
+        console.log(solution([89, 89, 92, 100, 76]))
+    </script>
+</body>
+
+</html>
