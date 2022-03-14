@@ -1,0 +1,82 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(arr) {
+
+            //강의 정답
+            //sum1, sum2 변수를 각 행, 열, 두 대각선의 합을 담아서 
+            //그 최대값을 answer에 return 후 초기화
+            //answer, sum1, sum2 중 매 for문 마다 최대값을 answer에 담아줌
+            let answer = Number.MIN_SAFE_INTEGER
+
+            let sum1 = sum2 = 0
+
+            for (let i = 0; i < arr.length; i++) {
+                sum1 = sum2 = 0
+                for (let j = 0; j < arr.length; j++) {
+                    sum1 += arr[i][j]
+                    sum2 += arr[j][i]
+                }
+                answer = Math.max(answer, sum1, sum2)
+            }
+            sum1 = sum2 = 0
+
+            for (let i = 0; i < arr.length; i++) {
+                sum1 += arr[i][i]
+                sum2 += arr[i][arr.length - 1 - i]
+
+                answer = Math.max(answer, sum1, sum2)
+            }
+
+            // 내가 푼 정답
+            // n*n 격자판의 행, 열, 두 대각선의 합의 개수는 총 n+n+2
+            // n+n+2 길이만큼 초기값이 0인 arr를 만들어 주고
+            // 각 행, 열, 두 대각 선의 합을 더해 arr에 저장
+            // 각 행, 열, 두 대각선의 합을 다 보여줄 때 사용
+
+            /*
+            let answer = Number.MIN_SAFE_INTEGER
+            const length = arr.length * 2 + 2
+ 
+            const numArr = Array.from({ length }, () => 0)
+ 
+            let rowNnum = 0
+            let columnNum = arr.length
+            let crossNum = arr.length * 2
+            let reverseCrossNum = crossNum + 1
+ 
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = 0; j < arr.length; j++) {
+                    numArr[rowNnum] += arr[i][j]
+                    numArr[columnNum] += arr[j][i]
+                }
+                columnNum++
+                rowNnum++
+                numArr[crossNum] += arr[i][i]
+                numArr[reverseCrossNum] += arr[i][arr.length - 1 - i]
+            }
+ 
+            answer = Math.max(...numArr)
+            */
+
+            return answer
+        }
+
+        console.log(solution([
+            [10, 13, 10, 12, 15],
+            [12, 39, 30, 23, 11],
+            [11, 25, 50, 53, 15],
+            [19, 27, 29, 37, 27],
+            [19, 13, 30, 13, 19],
+        ]
+        ))
+    </script>
+</body>
+
+</html>
