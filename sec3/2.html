@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(str) {
+            let answer = "YES"
+            let cases = ''
+
+            const UpperCase = str.toUpperCase()
+
+
+
+            for (x of UpperCase) {
+                if (x.codePointAt() >= 65 && x.codePointAt() <= 90) {
+                    cases += x
+                }
+            }
+
+            //혹은 정규표현식을 사용해서 대문자 이외에 수를 없애는 방법
+            //const cases = str.toUpperCase().replace(/[^A-Z]/g, '')
+
+            if (cases.split('').reverse().join('') !== cases) return "NO"
+
+
+            return answer
+        }
+
+        console.log(solution('found7, time: study; Yduts; emit, 7Dnuof'))
+    </script>
+</body>
+
+</html>

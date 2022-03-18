@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(str) {
+            const parse = str.replace(/[^0-9]/g, '')
+            // console.log(typeof pasre)
+            // const parseNum = parseInt(pasre)
+
+            let deleteZeroNum = 0
+
+
+            for (x of parse) {
+                if (x === '0') deleteZeroNum += 1
+                else return parse.slice(deleteZeroNum)
+            }
+            //혹은 isNan(숫자가 아닌 경우), parseInt를 사용해서 풀이
+            // for (x of str) {
+            //     if (isNaN(x)) answer += x // or answer = answer*10 + Bumber(x)
+            // }
+            // return parseInt(answer)
+        }
+
+        console.log(solution('g0000en2T0s8eSof'))
+    </script>
+</body>
+
+</html>

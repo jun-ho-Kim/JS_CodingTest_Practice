@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(str) {
+
+
+            //내가 적은 정답
+            let answer = "YES"
+
+            const UpperStr = str.toUpperCase()
+
+            const n = Math.floor(str.length / 2)
+
+            for (let i = 0; i < n; i++) {
+                if (UpperStr[i] !== UpperStr[str.length - 1 - i]) return answer = "NO"
+            }
+
+            //reverse 함수를 사용하여 구하는 방법
+            //if(UpperStr.split('').reverse().join('') !== s) return "NO"
+
+
+            return answer
+        }
+
+        console.log(solution('godog'))
+    </script>
+</body>
+
+</html>
