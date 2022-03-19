@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(str, standAlpabet) {
+            let answer = []
+            let p = 1000
+
+            for (let i = 0; i < str.length; i++) {
+                if (str[i] === standAlpabet) p = 0
+                else p++
+
+                answer.push(p)
+            }
+
+            for (let j = str.length - 1; j >= 0; j--) {
+                if (str[j] === standAlpabet) p = 0
+                else p++
+
+                if (answer[j] > p) answer[j] = p
+
+
+            }
+
+            return answer
+
+
+
+            /*
+            //내가 적은 정답
+            //str[i]의 index와 [...str.indexOf('e', index+1)]의 차를 뺀 뒤 제일 작은 수를 return
+            let answer = []
+            let includes = []
+            let index = 0
+
+            //standAlpabet을 포함하는 str의 index 모음
+            index = str.indexOf(standAlpabet)
+            while (index !== -1) {
+                includes.push(index)
+                index = str.indexOf(standAlpabet, index + 1)
+            } //includes = [1, 5, 9]
+
+            //includes와 str의 index의 차가 str[i]와 standAlpabet의 거리
+            for (let i = 0; i < str.length; i++) {
+                //sub 변수는 str[i]와 standAlpabet의 거리의 모음
+                let sub = includes.map((idx) => Math.abs(i - idx))
+
+                //sub 중 제일 작은 수를 하나씩 answer의 push
+                answer.push(Math.min(...sub))
+            }
+            */
+            return answer
+        }
+
+        console.log(solution('teachermode', 'e'))
+    </script>
+</body>
+
+</html>
