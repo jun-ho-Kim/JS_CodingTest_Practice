@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(arr) {
+            let answer, max = Number.MIN_SAFE_INTEGER
+
+            for (x of arr) {
+                //혹은 while문 안 쓰고 reduce로 하는 방법
+                //let sum = x.toString().split('').reduce(a, b =>a + Number(b) ,0)
+                let sum = 0, tmp = x
+                while (tmp) {
+                    sum += (tmp % 10)
+                    tmp = Math.floor(tmp / 10)
+                    if (sum > max) {
+                        max = sum
+                        answer = x
+                    } else if (sum === max) {
+                        answer = Math.max(answer, x)
+                    }
+                }
+            }
+
+            return answer
+
+
+
+            /*
+            //내가 짠 코드
+            //arr의 값들을 쪼개서 하나씩 더해 sumArr에 push한 후
+            //sumArr에 값들을 중 최대 큰 값들을 찾은 후
+            //arr와 sumArr를 비교해서 answer 리턴
+            //조금 복잡한 것 같음
+
+
+            let sumArr = []
+            let answer = []
+            let includes = []
+            let num = 1
+            let sum = 0
+
+            for (x of arr) {
+                let str = String(x)
+                for (let i = 0; i < str.length; i++) {
+                    sum += Number(str[i])
+                    console.log('sum', sum)
+                }
+                sumArr.push(sum)
+                sum = 0
+            }
+
+            const max = Math.max(...sumArr)
+            let idx = sumArr.indexOf(max)
+            while (idx !== -1) {
+                includes.push(idx)
+                idx = sumArr.indexOf(max, idx + 1)
+            }
+
+            for (let j = 0; j < includes.length; j++) {
+                answer.push(arr[includes[j]])
+            }
+
+            return Math.max(...answer)
+            */
+        }
+
+        console.log(solution([128, 460, 603, 40, 521, 137, 123]))
+    </script>
+</body>
+
+</html>
