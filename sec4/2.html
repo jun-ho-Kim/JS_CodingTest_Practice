@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function isPrime(num) {
+            if (num === 1) return false
+            for (let i = 2; i < num; i++) {
+                if (num % i === 0) return false
+            }
+            return true
+        }
+
+        function solution(arr) {
+            let answer = []
+            console.log('arr', arr)
+            for (let x of arr) {
+                let res = 0
+                //혹은 while문 대신
+                // x.toString().split('').reverse().join('') 사용
+                while (x) {
+                    let t = x % 10
+                    res = res * 10 + t
+                    x = parseInt(x / 10)
+                }
+                if (isPrime(res)) answer.push(res)
+            }
+
+
+            //내가 푼 정답
+            //이중 for문을 돌리기. 두 번째 for문은 i--로 돌리기
+            //강의 정답은 바깥에 함수 만들어서 사용 + x를 쪼개서 reverse
+
+            // let y = ''
+            // let reverseNum = ''
+            // let answer = []
+            // let parse = 0
+
+            // for (x of arr) {
+            //     y = String(x)
+            //     for (let i = y.length - 1; i >= 0; i--) {
+            //         reverseNum += y[i]
+            //     }
+            //     parse = parseInt(reverseNum)
+
+
+            //     for (let j = 2; j <= parse; j++) {
+            //         if (j == parse) answer.push(parse)
+            //         else if (parse % j === 0) break
+
+
+            //     }
+            //     reverseNum = ''
+            // }
+
+            return answer
+        }
+
+        console.log(solution([32, 55, 62, 20, 250, 370, 200, 30, 100]))
+    </script>
+</body>
+
+</html>
