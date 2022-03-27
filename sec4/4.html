@@ -1,0 +1,81 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(m, prodjuct) {
+
+            let answer = 0
+
+            //강의 정답
+            //product를 작은 순으로 정렬한 뒤 탐색
+
+            prodjuct.sort((a, b) => (a[0] + a[1]) - [b[0] + b[1]])
+
+            for (let i = 0; i < prodjuct.length; i++) {
+                let cnt = 1
+                let money = m - (prodjuct[i][0] / 2 + prodjuct[i][1])
+                for (let j = 0; j < prodjuct.length; j++) {
+                    if (i !== j && prodjuct[j][0] + prodjuct[j][1] > money) break
+                    if (i !== j && prodjuct[j][0] + prodjuct[j][1] <= money) {
+                        money -= (prodjuct[j][0] + prodjuct[j][1])
+                    }
+                    console.log('moeny', money)
+                    cnt++
+                }
+                answer = Math.max(cnt, answer)
+            }
+            return answer
+
+
+
+
+
+            //my solution - arr[i] 번째 기준으로 1~n개씩 다 더하기 + 50퍼 할인권
+
+            //내가 푼 코드 - 실패(나의 머리가 한계라 실패)
+            // function solution(arr) {
+
+            // let answer = 0
+
+            // let studentNum = arr[0][0]
+            // let budget = arr[0][1]
+            // let sum = 0
+            // let cnt = 0, max = 0
+            // console.log(budget, studentNum)
+
+            // for (let i = 1; i <= studentNum; i++) {
+            //     console.log('sum', sum)
+            //     sum = 0
+            //     //console.log('i, j', arr[i])
+            //     for (let j = 1; j <= studentNum; j++) {
+
+            //         for (let k = 1; k <= studentNum; k++) {
+
+            //         }
+
+            //         console.log('arr[j][0], arr[j][1]', i, j, arr[j][0], arr[j][1])
+            //         sum += arr[j][0] + arr[j][1]
+
+            //         console.log('sum', sum)
+            //         if (budget < sum) break
+
+            //     }
+
+            // }
+            // }
+
+            //return answer
+
+        }
+        const arr = [[6, 6], [2, 2], [4, 3], [4, 5], [10, 3]]
+        //const arr = [[5, 28], [6, 6], [2, 2], [4, 3], [4, 5], [10, 3]]
+        console.log(solution(28, arr))
+    </script>
+</body>
+
+</html>
