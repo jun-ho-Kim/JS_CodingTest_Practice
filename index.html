@@ -7,15 +7,35 @@
 
 <body>
     <script>
-        function solution(num, arr) {
+        function solution(str) {
+            let answer
+            let sum = 0
 
+            let sH = new Map()
 
+            console.log('str', str[0])
+
+            for (let i = 0; i < str.length; i++) {
+                if (sH.has(str[i])) sH.set(str[i], sH.get(str[i]) + 1)
+                else sH.set(str[i], 1)
+
+            }
+
+            for (let [key, val] of sH) {
+                console.log('sh', key, val)
+                if (val > sum) {
+                    sum = val
+                    answer = key
+                }
+            }
+
+            return answer
         }
 
 
 
 
-        console.log(solution(5, [1, 3, 1, 2, 3]))
+        console.log(solution('BACBACCACCBDEDE'))
     </script>
 </body>
 

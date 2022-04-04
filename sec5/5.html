@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(k, arr) {
+            let lt = 0, sum = 0
+            let answer = 0
+
+            //강의 정답 코드 
+            //굉장히 심플, arr 0번째에서 k-1을 먼저 더한 후
+            //sum + arr[i] - arr[i-k]를 하여 큰 수 비교
+            for (let i = 0; i < k; i++) sum += arr[i]
+            answer = sum
+            for (let i = k; i < arr.length; i++) {
+                sum += arr[i] - arr[i - k]
+                answer = Math.max(sum, answer)
+            }
+
+            return answer
+
+
+            //내가 푼 문제
+
+            // for (let rt = 0; rt < arr.length; rt++) {
+            //     sum += arr[rt]
+            //     if (rt - lt > k - 2) {
+            //         max = Math.max(sum, max)
+            //         sum -= arr[lt++]
+            //     }
+            // }
+
+            // return max
+
+        }
+
+
+
+
+        console.log(solution(3, [12, 15, 11, 20, 25, 10, 20, 19, 13, 15]))
+    </script>
+</body>
+
+</html>
