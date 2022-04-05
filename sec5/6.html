@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(str) {
+            let answer
+            let sum = 0
+
+            let sH = new Map()
+
+            //해쉬를 사용할지 몰라서 강의참고하면서 작성
+            for (let i = 0; i < str.length; i++) {
+                if (sH.has(str[i])) sH.set(str[i], sH.get(str[i]) + 1)
+                else sH.set(str[i], 1)
+
+            }
+
+            for (let [key, val] of sH) {
+                console.log('sh', key, val)
+                if (val > sum) {
+                    sum = val
+                    answer = key
+                }
+            }
+
+            return answer
+        }
+
+
+
+
+        console.log(solution('BACBACCACCBDEDE'))
+    </script>
+</body>
+
+</html>
