@@ -7,52 +7,11 @@
 
 <body>
     <script>
-        function compareMap(map1, map2) {
-            if (map1.size !== map2.size) return false
-            for ([key, value] of map1) {
-                if (!map2.has(key) || map2.get(key) !== value) return false
-            }
-            return true
-        }
-        function solution(s, t) {
-            let answer = 0
-            let lt = 0
-
-            let tH = new Map()
-            let sH = new Map()
-
-            for (let i = 0; i < t.length; i++) {
-                if (tH.has(t[i])) tH.set(t[i], tH.get(t[i]) + 1)
-                else tH.set(t[i], 1)
-            }
-            console.log('tH', tH)
-
-            let n = t.length - 1
-            for (let i = 0; i < n; i++) {
-                if (sH.has(s[i])) {
-                    if (sH.has(s[i])) sH.set(s[i], sH.get(s[i] + 1))
-                    else sH.set(s[i], 1)
-                }
-            }
-            console.log('sH', sH)
-
-
-            for (let rt = n; rt < s.length; rt++) {
-                if (sH.has(s[rt])) sH.set(s[rt], sH.get(s[rt] + 1))
-                else sH.set(s[rt], 1)
-                if (compareMap(sH, tH)) answer++
-                sH.set(s[lt], sH.get(rt) - 1)
-                if (sH.get(s[lt] === 0)) sH.delete(s[lt])
-                lt++
-            }
-
-
-
-            return answer
+        function solution(s) {
+            let answer = ''
         }
 
-
-        console.log(solution('bacaAacba', 'abc'))
+        console.log(solution('(A(BC)D)EF(G(H)(IJ)K)LM(N)'))
     </script>
 </body>
 

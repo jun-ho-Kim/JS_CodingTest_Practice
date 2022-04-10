@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(bracket) {
+            //push와 pop을 이용하여 stack사용
+            let answer = 'YES'
+            let stack = []
+            for (x of bracket) {
+                if (x === '(') stack.push(x)
+                else {
+                    if (stack.length === 0) return 'NO'
+                    stack.pop()
+                }
+            }
+            if (stack.length > 0) return 'NO'
+
+            return answer
+        }
+        // 내가 짠 코드
+        // 하지만 이렇게 할 경우 ())( 는 정상괄호가 아닌데
+        // answer이 0이 되어 YES로 return 하게 됨
+        // let answer = 0
+
+        // for (let i = 0; i < bracket.length; i++) {
+        //     if (bracket[i] === ')') answer -= 1
+        //     else if ((bracket[i] === '(')) answer += 1
+        // }
+
+        // answer === 0 ? 'YES' : 'NO'
+
+
+        // return answer === 0 ? 'YES' : 'NO'
+        // }
+
+
+        console.log(solution('()())('))
+    </script>
+</body>
+
+</html>
