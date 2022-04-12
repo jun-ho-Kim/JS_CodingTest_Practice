@@ -7,27 +7,30 @@
 
 <body>
     <script>
-        function solution(board, moves) {
-            let answer = ''
-            let p1 = p2 = 0
-            let pick = 0, stack
-            console.log('board', board)
-            console.log('moves', moves)
 
-            for (let i = 0; i < board.length; i++) {
-                let pos = moves[p1] - 1
-                console.log('pos', pos)
-                while (pick !== 0) {
+
+        function solution(board, moves) {
+            let answer = 0
+            let p2 = 0
+            let pick = 0, stack = []
+            //강의에서 정답은 moves를 forEach 사용하여 pos를 사용
+
+            //내가 적은 정답(강의에서 적은 forEach나 내 방법이나 똑같은 것 같다.)
+            for (let i = 0; i < moves.length; i++) {
+                let pos = moves[i] - 1
+                while (pick === 0 && p2 < 5) {
                     pick = board[p2][pos]
-                    console.log('board[p2][pos]', board[p2][pos])
+                    if (pick !== 0) {
+                        board[p2][pos] = 0
+                    }
                     p2++
-                }
-                console.log('pick', pick)
-                stack = pick
+                };
+                if (stack[stack.length - 1] === pick) {
+                    answer += 2
+                    stack.pop()
+                } else stack.push(pick)
                 pick = 0
-                console.log('stack', stack)
                 p2 = 0
-                p1++
             }
 
             return answer
