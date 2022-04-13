@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(str) {
+            //답지 보면서 문제 참조
+            let answer = 0
+            let stack = []
+            let lt = rt = 0
+            const num = Number(str)
+
+
+            for (x of str) {
+                console.log(typeof x, x)
+                if (!isNaN(x)) stack.push(Number(x))
+                else {
+                    rt = stack.pop()
+                    lt = stack.pop()
+                    if (x === '+') stack.push(lt + rt)
+                    else if (x === '-') stack.push(lt - rt)
+                    else if (x === '*') stack.push(lt * rt)
+                    else if (x === '/') stack.push(lt / rt)
+                }
+            }
+
+            console.log('stack', stack)
+            answer = stack[0]
+
+            return answer
+        }
+
+        console.log(solution('352+*9-'))
+    </script>
+</body>
+
+</html>
