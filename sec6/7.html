@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(need, plan) {
+            let answer = "YES"
+
+            let queue = need.split('')
+
+            //강의 정답. 이렇게 심플하게 풀 수 있다니..
+            for (x of plan) {
+                if (queue.includes(x))
+                    if (x !== queue.shift()) return "NO"
+            }
+            if (queue.length > 0) return "NO"
+
+
+            //내가 적은 정답
+            //이중 for문을 사용했는데 정답에서는 이중 for문을 사용하지 않았음
+            // const queue = Array.from(need, (v, i) => v)
+            // console.log('queue', queue)
+
+            // for (let i = 0; i < plan.length; i++) {
+            //     if (plan[i] === queue[0]) queue.shift()
+            //     else
+            //         for (let j = 1; j < queue.length; j++) {
+            //             if (queue[j] === plan[i]) return "NO"
+            //         }
+            // }
+            // if (queue.length > 0) return "NO"
+            return answer
+        }
+
+        console.log(solution('CBA', 'FBADGE'))
+    </script>
+</body>
+
+</html>
