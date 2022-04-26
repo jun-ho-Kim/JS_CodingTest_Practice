@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(size, arr) {
+
+            let answer = Array.from({ length: size }, () => 0)
+            //강의보고 풀음
+            //방법 1
+            arr.forEach(x => {
+                let pos = -1
+                for (let i = 0; i < size; i++) if (answer[i] === x) pos = i
+                if (pos === -1) {
+                    for (let i = size - 1; i >= 1; i--) {
+                        answer[i] = answer[i - 1]
+                    }
+                } else {
+                    for (let i = pos; i >= 1; i--) {
+                        answer[i] = answer[i - 1]
+                    }
+                }
+                answer[0] = x
+            })
+
+            //방법2 - unshift, splice 사용
+            // arr.forEach(x => {
+            //     let pos = -1
+            //     for (let i = 0; i < size; i++) if (answer[i] === x) pos = i
+            //     if (pos === -1) {
+            //         answer.unshift(x)
+            //         if (answer.length > size) answer.pop()
+            //     }
+            //     else {
+            //         answer.splice(pos, 1)
+            //         answer.unshift(x)
+            //     }
+            // })
+
+            // for (let i = 0; i < arr.length; i++) {
+            //     answer.unshift(arr[i])
+            //     if (answer.length === 6) answer.pop()
+            // }
+
+
+            //내가 짠 코드.. 엉망이다..
+            // for (let i = 0; i < arr.length; i++) {
+            //     console.log('arr[i]', arr[i])
+            //     for (let j = 0; j < 5; j++) {
+            //         //console.log('answer[j]', answer[j])
+            //         if (arr[i] === answer[j]) {
+            //             const ret = answer.filter((data) => {
+            //                 console.log('data', data)
+            //                 return data !== answer[j]
+            //             })
+            //             console.log('ret', ret)
+            //             if (answer.length === 5) {
+            //                 answer.pop()
+            //             }
+            //             answer = [arr[i], ...ret]
+            //         }
+            //     }
+            //     console.log('anwner', answer)
+            // }
+
+            return answer
+        }
+        console.log(solution(5, [1, 2, 3, 2, 6, 2, 3, 5, 5, 7]))
+    </script>
+</body>
+
+</html>
