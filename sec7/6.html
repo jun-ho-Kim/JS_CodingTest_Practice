@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(arr) {
+            let answer = []
+            //강의보고 풀음
+            let sortArr = arr.slice()
+            sortArr.sort((a, b) => a - b)
+            for (let i = 0; i < sortArr.length; i++) {
+                if (arr[i] !== sortArr[i]) answer.push(i + 1)
+            }
+
+            return answer
+        }
+        console.log(solution([120, 125, 152, 130, 135, 135, 143, 127, 160]))
+    </script>
+</body>
+
+</html>
